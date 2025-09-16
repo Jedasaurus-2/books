@@ -1,5 +1,7 @@
 package com.svgs;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,7 +18,7 @@ public class BookController {
     private Button addBookButton;
 
     @FXML
-    private TableColumn<?, ?> authorCol;
+    private TableColumn<Book, String> authorCol;
 
     @FXML
     private TextField authorField;
@@ -28,10 +30,10 @@ public class BookController {
     private Button deleteBookButton;
 
     @FXML
-    private ComboBox<?> genreBox;
+    private ComboBox<String> genreBox;
 
     @FXML
-    private TableColumn<?, ?> genreCol;
+    private TableColumn<Book, String> genreCol;
 
     @FXML
     private RadioButton rating1;
@@ -49,22 +51,29 @@ public class BookController {
     private RadioButton rating5;
 
     @FXML
-    private TableColumn<?, ?> ratingCol;
+    private TableColumn<Book, String> ratingCol;
 
     @FXML
     private ToggleGroup ratingGroup;
 
     @FXML
-    private TableColumn<?, ?> titleCol;
+    private TableColumn<Book, String> titleCol;
 
     @FXML
     private TextField titleField;
 
     @FXML
-    private TableColumn<?, ?> yearCol;
+    private TableColumn<Book, String> yearCol;
 
     @FXML
     private TextField yearField;
+
+    @FXML
+    void initialize() {
+        ObservableList<String> genres = FXCollections.observableArrayList();
+        genres.addAll("Romance", "Mystery", "Horror");
+        genreBox.setItems(genres);
+    }
 
     @FXML
     void handleAddBook(ActionEvent event) {
