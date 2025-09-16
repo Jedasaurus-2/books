@@ -66,7 +66,7 @@ public class BookController {
     private TableColumn<Book, String> yearCol;
 
     @FXML
-    private TextField yearField;
+    private TextField yearField;//
 
     private ObservableList<Book> books;
 
