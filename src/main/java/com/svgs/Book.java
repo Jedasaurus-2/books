@@ -11,11 +11,11 @@ public class Book {
     private SimpleStringProperty rating;
 
     Book(String title, String author, String year, String genre, String rating) {
-        this.title.setValue(title);
-        this.author.setValue(author);
-        this.year.setValue(year);
-        this.genre.setValue(genre);
-        this.rating.setValue(rating);
+        this.title = new SimpleStringProperty(title);
+        this.author = new SimpleStringProperty(author);
+        this.year = new SimpleStringProperty(year);
+        this.genre = new SimpleStringProperty(genre);
+        this.rating = new SimpleStringProperty(rating);
     }
 
     public SimpleStringProperty getTitleProperty() {
@@ -34,7 +34,7 @@ public class Book {
         return genre;
     }
 
-    public SimpleStringProperty getratingProperty() {
+    public SimpleStringProperty getRatingProperty() {
         return rating;
     }
 

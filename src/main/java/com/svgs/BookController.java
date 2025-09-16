@@ -24,7 +24,7 @@ public class BookController {
     private TextField authorField;
 
     @FXML
-    private TableView<?> bookTable;
+    private TableView<Book> bookTable;
 
     @FXML
     private Button deleteBookButton;
@@ -68,11 +68,21 @@ public class BookController {
     @FXML
     private TextField yearField;
 
+    private ObservableList<Book> books;
+
     @FXML
     void initialize() {
         ObservableList<String> genres = FXCollections.observableArrayList();
         genres.addAll("Romance", "Mystery", "Horror");
         genreBox.setItems(genres);
+        bookTable.getItems();
+        books = bookTable.getItems();
+        books.add(new Book("#1 Book", "That one guy in that one house", "1955", "Science Fiction", "5"));
+        titleCol.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
+        authorCol.setCellValueFactory(cellData -> cellData.getValue().getAuthorProperty());
+        yearCol.setCellValueFactory(cellData -> cellData.getValue().getYearProperty());
+        genreCol.setCellValueFactory(cellData -> cellData.getValue().getGenreProperty());
+        ratingCol.setCellValueFactory(cellData -> cellData.getValue().getRatingProperty());
     }
 
     @FXML
